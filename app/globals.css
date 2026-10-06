@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    scroll-padding-top: 5.5rem;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+  body {
+    @apply bg-brand-substrate font-body text-brand-ink antialiased;
+    font-feature-settings: "kern";
+    letter-spacing: -0.01em;
+  }
+  ::selection {
+    @apply bg-brand-primary text-brand-bone;
+  }
+  :focus-visible {
+    outline: 2px solid theme("colors.brand.primaryLight");
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  .on-dark :focus-visible {
+    outline-color: theme("colors.sign.glow");
+  }
+}
+
+@layer components {
+  /** Content container – OS max-w-7xl with responsive gutters. */
+  .wrap {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8;
+  }
+
+  /** Display heading – Inter Tight on its variable axis, between medium and semibold. */
+  .display {
+    font-family: var(--font-display), "Helvetica Neue", Arial, sans-serif;
+    font-weight: 550;
+    letter-spacing: -0.026em;
+  }
+
+  /** Brushed aluminium – fine horizontal grain, CSS only. */
+  .brushed {
+    background-color: #e3e4e1;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.35) 0 1px, transparent 1px 3px),
+      repeating-linear-gradient(0deg, rgba(20, 22, 27, 0.035) 0 1px, transparent 1px 7px),
+      linear-gradient(90deg, #dcddda, #ecedeb 38%, #dfe0dd 62%, #e9eae7);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+}
+
+/* Reduced motion: CSS transitions collapse. Motion animations are governed by MotionProvider. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Industries: products stand up on the floor line when a sector is chosen. */
+@keyframes diad-rise {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.rise {
+  animation: diad-rise 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes diad-nudge {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(4px);
+  }
+}

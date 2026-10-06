@@ -1,0 +1,31 @@
+{
+  "name": "diad-signs-industrial",
+  "version": "0.1.0",
+  "private": true,
+  "description": "DIAD Signs & Industrial Suppliers – homepage demo. Built on Bbettr Website OS v2.7.",
+  "scripts": {
+    "dev": "next dev -p 3900",
+    "build": "next build",
+    "start": "next start -p 3900",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "motion": "^12.43.0",
+    "next": "^14.2.15",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "sharp": "^0.33.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.43",
+    "@types/react": "^18.3.0",
+    "@types/react-dom": "^18.3.0",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^8.57.1",
+    "eslint-config-next": "^14.2.15",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.13",
+    "typescript": "^5.4.0"
+  }
+}
